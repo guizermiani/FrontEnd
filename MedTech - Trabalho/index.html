@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <main id = "comeco">
+    </main>
     <title>MedTech Solutions</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -15,35 +19,38 @@
 
         <p> Equipamentos médicos de alta precisão para clínicas e hospitais </p>
 
+      <div class = "navLinks">
         <nav aria-label="Menu principal">
-            <a href="#inicio">Início </a> |
-            <a href="#productsList">Produtos </a> |
-            <a href="#aboutUs">Sobre </a> |
-            <a href="#description">Contato </a> |
-            <a href="#loc">Localização</a>
+            <a href="#inicio"  class = "links">Início </a> |
+            <a href="#productsList"  class = "links">Produtos </a> |
+            <a href="#aboutUs"  class = "links">Sobre </a> |
+            <a href="#description"  class = "links">Contato </a> |
+            <a href="#loc"  class = "links">Localização</a>
         </nav>
+    </div>
     </header>
 
     <main id="inicio">
-        <section aria-labelledby="inicio">
+        <br><br>
+        <section aria-labelledby="inicio" class = "introducao">
             <div class="subtitle1">
                 <h2>Soluções Confiáveis em Equipamentos Médicos</h2>
-            </div>
+            
 
-            <p>Na MedTech Solutions fornecemos equipamentos com garantia e suporte técnico especializado</p>
+            <p class = "textinho">Na MedTech Solutions fornecemos equipamentos com garantia e suporte técnico especializado</p>
 
             <nav aria-label="Orçamento">
-                <a href="#orcamento">Solicitar Orçamento</a>
+                <a href="#orcamento" class = "orcamento">Solicitar Orçamento</a>
             </nav>
+        </div>
         </section>
 
+        <br><br><br><br>
         <section id="productsList" aria-labelledby="produtos-title">
-            <div class="produtos">
+            <div class="ourProducts">
                 <h2 id="p1-title">Nossos Produtos</h2>
-            </div>
-
-            <div class="#productsList">
-                <article aria-labelledby="p1-title">
+            <div class="productsList">
+                <article aria-labelledby="p1-title" class = "product1">
                     <h3>Monitor Cardíaco MC-200</h3>
                     <img src="images/monitorCardiaco 1.jpg" width="300" height="200">
                     <p>Monitor multiparamétrico com display de alta resolução e alarmes programáveis.</p>
@@ -56,7 +63,7 @@
                     <br>
                 </article>
 
-                <article aria-labelledby="p2-title">
+                <article aria-labelledby="p2-title" class = "product1">
                     <h3>Ultrassom Portátil US-Portable </h3>
                     <img src="images/ultrassomPortatil 1.webp" width="300" height="200">
                     <p>Equipamento portátil para exames de imagem com alta sensibilidade.</p>
@@ -69,7 +76,7 @@
                     <br>
                 </article>
 
-                <article aria-labelledby="p3-title">
+                <article aria-labelledby="p3-title" class = "product1">
                     <h3>Bomba de Infusão INJ-500</h3>
                     <img src="images/bombaDeInfusao 1.webp" width="300" height="200">
                     <p>Bomba de infusão de precisão para ambientes hospitalares</p>
@@ -82,7 +89,7 @@
                     <br>
                 </article>
 
-                <article aria-labelledby="p4-title">
+                <article aria-labelledby="p4-title" class = "product1">
                     <h3>Estetoscópio Profissional</h3>
                     <img src="images/estetoscopioProfissional 1.webp" width="300" height="200">
                     <p>Estetoscópio de precisão para profissionais especializados</p>
@@ -94,7 +101,7 @@
                     </ol>
                 </article>
 
-                <article>
+                <article aria-labelledby="p5-title" class = "product1">
                     <h3>Colchão Pneumático</h3>
                     <img src="images/colchaoPneumatico1.png" width="300" height="200">
                     <p>Colchão Pneumático projetado a atender às necessidades dos pacientes</p>
@@ -105,8 +112,9 @@
                         <li>Eficácia comprovada</li>
                     </ol>
                 </article>
+            </div>
+            </div>
         </section>
-        </div>
         <br>
         <section id="productsComparative" aria-labelledby="productsComparative">
 
@@ -257,7 +265,7 @@
                         <a href="#facebook">Facebook </a> |
                         <a href="#instagram">Instagram </a> |
                         <a href="#linkedin">Linkedin </a> |
-                        <a href="#inicio">Voltar ao Início</a>
+                        <a href="#comeco">Voltar ao Início</a>
                 </article>
             </div>
         </section>
