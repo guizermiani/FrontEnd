@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Netflix</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topo">
+    <h1 class = "titulo">MINI NETFLIX</h1>
+    
+    
+    <div class = "navLinks">
+        <nav aria-label="Menu principal">
+            <a href="#inicio"  class = "links">Início </a>
+            <a href="#series"  class = "links">Séries </a>
+            <a href="#films"  class = "links">Filmes </a>
+        </nav>
+    </div>
+  </header>
+
+  
+
+  <div class = "bannerPrincipal">
+    <img src="images/bannerGenteGrande.jpg" alt="">
+     
+  </div>
+
+  <main>
+    <!-- Banner principal -->
+
+
+    
+    <!-- Categoria Ação -->
+    <section class="categoria">
+      <h2>Ação</h2>
+      <div class="carrossel">
+        <article class="filme"><a href="#detalhes-acao1"><img src="images/avengers.jpg" alt="Filme de Ação 1"></a></article>
+        <article class="filme"><a href="#detalhes-acao2"><img src="images/spiderman.jpg" alt="Filme de Ação 2"></a></article>
+        <article class="filme"><a href="#detalhes-acao3"><img src="images/fastAndFurious.jpg" alt="Filme de Ação 3"></a></article>
+        <article class="filme"><a href="#detalhes-acao4"><img src="images/deadpool.jpg" alt="Filme de Ação 4"></a></article>
+        <article class="filme"><a href="#detalhes-acao5"><img src="images/theBatman.avif" alt="Filme de Ação 5"></a></article>
+      </div>
+    </section>
+
+    <!-- Categoria Comédia -->
+    <section class="categoria">
+      <h2>Comédia</h2>
+      <div class="carrossel">
+        <article class="filme"><a href="#detalhes-acao1"><img src="images/projetoX.jpg" alt="Filme de Ação 1"></a></article>
+        <article class="filme"><a href="#detalhes-acao2"><img src="images/superbad.png" alt="Filme de Ação 2"></a></article>
+        <article class="filme"><a href="#detalhes-acao3"><img src="images/asBranquelas.webp" alt="Filme de Ação 3"></a></article>
+        <article class="filme"><a href="#detalhes-acao4"><img src="images/debieLoide.webp" alt="Filme de Ação 4"></a></article>
+        <article class="filme"><a href="#detalhes-acao5"><img src="images/americanPie.jpg" alt="Filme de Ação 5"></a></article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal de detalhes -->
+  <div id="detalhes-acao1" class="modal">
+    <div class="conteudo-modal">
+      <a href="#" class="fechar">X</a>
+      <img src="imagens/acao1.jpg" alt="Filme de Ação 1">
+      <h3>Filme de Ação 1</h3>
+      <p>Sinopse: Um herói enfrenta grandes desafios para salvar o mundo.</p>
+    </div>
+  </div>
+</body>
+</html>
