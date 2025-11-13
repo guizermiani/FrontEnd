@@ -9,10 +9,6 @@
     --transicao: 0.3s;
   }
 
-
-
-  
-
   body.escuro {
     --cor-fundo: #121212;
     --cor-texto: #f4f4f4;
