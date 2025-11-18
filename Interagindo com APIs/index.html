@@ -1,106 +1,122 @@
-<!-- Atribuindo o cabeçalho a página -->
-<!-- o cabeçalho é responsável poer armazenar as informações de linguagem, 
-título da página e estilização
-(o cabeçalho guarda as informações para o programador)
-(o que está no cabeçalho não aparece para o usuário) -->
+<!-- atribuindo um cabeçalho a pagina -->
+ <!-- o cabeçalho é responsabel por armezanar as informçaçoes de linguagem
+  titulo da pagina
+  E estilizaoção
+  (o cabeçalho guarda as informações para o programador)
+  (o que esta no cabeçlho não aparece para o usuario) -->
 <head>
-   
-    <!-- Título que aparece na aba da página -->
+    <!-- titulo que aparece na aba da pagina -->
     <title>Calculadora</title>
-    <!-- sinaliza que serão aceitos os caracteres do Brasil -->
-    <meta charset = "UTF-8">
+    <!-- sinaliza que sera aceitos os caraceteres do Brasil -->
+    <meta charset="UTF-8">
 </head>
 
-<!-- H é o tamanho da fonte para o título -->
+<!-- o H é o tamanho da fonte para o titulo -->
 <h2>Calculadora</h2>
-<p> Informe o número 1: </p>
-<!-- Usuário consegue digitar -->
+<!-- paragrafo de texto -->
+<p>informe o numero 1:</p>
+<!-- input é a parte que fica em tela que o usuario pode digitar (leia do portugol) -->
 <input id="num1" type="number">
-
-<p> Informe o número 2: </p>
+<p>informe o numero 2:</p>
 <input id="num2" type="number">
-
-<br><br>
-<button type = "button" onclick = "calcular('som')">Somar</button>
-<br><br>
-<button type = "button" onclick = "calcular('sub')">Subtrair</button>
-<br><br>
-<button type = "button" onclick = "calcular('mult')">Multiplicar</button>
-<br><br>
-<button type = "button" onclick = "calcular('div')">Dividir</button>
-
+<!-- br pula uma linha -->
 <br><br>
 
-<hr>
+<!-- criar um botão em tela -->
+<button type="button" onclick="calcular('somar')">Somar</button>
+<button type="button" onclick="calcular('subtrair')">Subtrair</button>
+<button type="button" onclick="calcular('multiplicar')">Multiplicar</button>
+<button type="button" onclick="calcular('dividir')">Dividir</button>
 
-<h4>Nome: </h4>
-<div id = "nome"></div>
+<h4>Resultado:</h4>
+<!-- a div é uma DIVisão que fazemos na tela -->
+ <hr>
+ Escolha um pokemon
+ <input id="pokemon" type="text">
+<button type="button" onclick="inserirPokemon()">Inserir</button>
 
-<br>
-
-<h4>Resultado: </h4>
-<div id = "resultado"></div>
-<button type = "button" onclick = "inserirPokemonImagem('inserirPokemonImagem')">Inserir Imagem</button>
-<br>   
-
+<div id="resultado"></div>
+<div id="pokemon-info"></div>
 
 
 <script>
 
-    
-    
-    function inserirPokemonImagem(){
-
-        fetch('https://pokeapi.co/api/v2/pokemon/1')
-        .then(res => res.json())
-
-        .then(data => {
-            console.log(data);
-            document.getElementById('resultado').innerHTML = 
-            '<img src="'+data.sprites.front_default+'" width="300px"/>'
-            document.getElementById('nome').innerHTML = 
-            '<h4>'+data.species.name+'</h4>'
-            
-        })
+    function inserirPokemon(){
+        var nomePokemon = document.getElementById('pokemon').value;
+        fetch('https://pokeapi.co/api/v2/pokemon/'+ nomePokemon)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                document.getElementById('pokemon-info').innerHTML = 'nome: '+ data.name
+                document.getElementById("pokemon-info").innerHTML += 
+                '<br><img src="'+data.sprites.front_default +'" width="150">';
+            })
     }
-
-    function inserir_imagem(){
-        // Interagindo com APIs 
+    
+    function inserirGato(){ 
+        // Interagindo com uma API
+        // o fetch vai buscar os dados da API no link que esta dentro dele
         fetch('https://api.thecatapi.com/v1/images/search')
+        // diz que a reposta vai ser retornada em formato JSON
         .then(res => res.json())
-
-
+        // Local onde podemos manipular a resposta da API
         .then(data => {
-            console.log(data);
-            document.getElementById('resultado').innerHTML = 
-            '<img src="'+data[0].url+'" width="300px"/>'
+            console.log(data)
+            // pegando o ID resultado em TELA e adicionando um HTML
+            document.getElementById('resultado').innerHTML +=
+            '<img src="'+data[0].url+'" width="300">'
+
         })
     }
 
     function calcular(operacao){
-        var numero1 = parseFloat(document.getElementById('num1').value);
-        var numero2 = parseFloat(document.getElementById('num2').value)
+       // pegar o valor que o usuario digitou no input numero 1
+       // parseFloat converte o valor de texto para numero com virgula
+       var numero1 = parseFloat(document.getElementById('num1').value);
+       var numero2 = parseFloat(document.getElementById('num2').value);
 
-        switch(operacao){
-            case 'som':
-                resultado = numerog1 + numero2
+    // escolha caso
+    // switch é a estrutura de escolha
+       switch(operacao){
+            // caso
+            case 'somar':
+                resultado = numero1 + numero2
+                // pare
                 break
-            case 'sub':
+            case 'subtrair':
                 resultado = numero1 - numero2
                 break
-            case 'mult':
+            case 'multiplicar':
                 resultado = numero1 * numero2
                 break
-            case 'div':
-                resultado = numero1 / numero2
+            case 'dividir':
+                // se e senao
                 if (numero2 == 0){
                     resultado = 'Não é possível dividir por zero!'
                 }else{
                     resultado = numero1 / numero2
                 }
-                break
-        } 
-        document.getElementById('resultado').innerHTML = resultado
+                break        
+       }
+         // mostrar o resultado na tela
+         document.getElementById('resultado').innerHTML = resultado
+
+         fetch('https://pokeapi.co/api/v2/pokemon/'+ resultado)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                document.getElementById('pokemon-info').innerHTML = 'nome: '+ data.name
+                document.getElementById("pokemon-info").innerHTML += 
+                '<br><img src="'+data.sprites.front_default +'" width="150">';
+            })
+
+            .catch(error => {
+                inserirGato();
+            })
+
+            .finally(() => {
+                console.log('Requisição finalizada')
+            })
     }
 
 </script>
