@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title>Laboratório Interativo de JavaScript</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+    <h1>Laboratório Interativo de JavaScript</h1>
+    <p>Aprenda JavaScript testando diretamente no navegador!</p>
+</header>
+
+<div class="container">
+
+    <!-- 1. ALERTA E CONSOLE -->
+    <section class="box">
+        <h2>1️⃣ Comandos Básicos</h2>
+        <button id="btnAlert">Executar alert()</button>
+        <button id="btnConsole">Executar console.log()</button>
+        <p id="feedback1"></p>
+    </section>
+
+    <!-- 2. DOM -->
+    <section class="box">
+        <h2>2️⃣ Manipulando o DOM</h2>
+        <input type="text" id="textoDom" placeholder="Digite algo..." />
+        <button id="btnDom">Atualizar</button>
+        <p id="resultadoDom"></p>
+    </section>
+
+    <!-- 3. ESTILOS -->
+    <section class="box">
+        <h2>3️⃣ Mudando Estilos com JavaScript</h2>
+        <button id="btnCor">Mudar Cor</button>
+        <button id="btnTamanho">Aumentar Tamanho</button>
+        <button id="btnReset">Resetar</button>
+        <div id="boxCor" class="color-target"></div>
+    </section>
+
+    <!-- 4. PAR OU ÍMPAR -->
+    <section class="box">
+        <h2>4️⃣ Par ou Ímpar?</h2>
+        <input type="number" id="numParImpar" />
+        <button id="btnParImpar">Verificar</button>
+        <p id="resParImpar"></p>
+    </section>
+
+    <!-- 5. SOMA -->
+    <section class="box">
+        <h2>5️⃣ Faça uma Soma</h2>
+        <input type="number" id="valor1" placeholder="Número 1" />
+        <input type="number" id="valor2" placeholder="Número 2" />
+        <button id="btnSomar">Somar</button>
+        <p id="resultadoSoma"></p>
+    </section>
+
+    <!-- 6. TEMA -->
+    <section class="box">
+        <h2>6️⃣ Alterar Tema (Dark/Light)</h2>
+        <button id="btnTema">Alternar Tema</button>
+        <p>Experimente alterar o visual da página usando JavaScript!</p>
+    </section>
+
+    <!-- 7. JOGO DE ADIVINHAÇÃO -->
+    <section class="box">
+        <h2>7️⃣ Jogo: Adivinhe o Número!</h2>
+        <p>Tente descobrir o número secreto (entre 1 e 10):</p>
+        <input type="number" id="numChute" />
+        <button id="btnChutar">Chutar</button>
+        <p id="feedbackChute"></p>
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
