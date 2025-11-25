@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Variáveis no CSS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Exemplo de Variáveis CSS</h1>
+    <button id="btn-tema">Alternar Tema</button>
+  </header>
+
+  <main>
+    <section class="conteudo">
+      <h2>Variáveis e var()</h2>
+      <p>Este exemplo mostra como usar variáveis no CSS para definir cores, tamanhos e estilos reutilizáveis. O botão acima alterna entre o tema claro e escuro.</p>
+      <button class="botao-acao">Clique Aqui</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Exemplo prático desenvolvido em HTML e CSS</p>
+  </footer>
+
+  <script>
+    const botao = document.getElementById("btn-tema");
+    botao.addEventListener("click", () => {
+      document.body.classList.toggle("escuro");
+    });
+  </script>
+</body>
+</html>

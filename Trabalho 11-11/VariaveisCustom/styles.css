@@ -1,0 +1,103 @@
+/*Váriaveis gerais*/
+:root {
+    --cor-fundo: #f0f0f0;
+    --cor-texto: #222;
+    --cor-principal: #0077ff;
+    --cor-secundaria: #0056b3;
+    --cor-caixa: #ffffff;
+    --raio: 8px;
+    --transicao: 0.3s;
+  }
+
+  body.escuro {
+    --cor-fundo: #121212;
+    --cor-texto: #f4f4f4;
+    --cor-principal: #0dcaf0;
+    --cor-secundaria: #0b7285;
+    --cor-caixa: #1e1e1e;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    transition: background-color var(--transicao), color var(--transicao);
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: var(--cor-caixa);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 1.4rem;
+  }
+  
+  #btn-tema {
+    background-color: var(--cor-principal);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: var(--raio);
+    cursor: pointer;
+    transition: background-color var(--transicao);
+  }
+  
+  #btn-tema:hover {
+    background-color: var(--cor-secundaria);
+  }
+  
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    padding: 20px;
+  }
+  
+  .conteudo {
+    background-color: var(--cor-caixa);
+    padding: 24px;
+    border-radius: var(--raio);
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: background-color var(--transicao);
+  }
+  
+  .conteudo h2 {
+    color: var(--cor-principal);
+  }
+  
+  .botao-acao {
+    background-color: var(--cor-principal);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--raio);
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color var(--transicao);
+  }
+  
+  .botao-acao:hover {
+    background-color: var(--cor-secundaria);
+  }
+  
+  footer {
+    text-align: center;
+    padding: 16px;
+    background-color: var(--cor-caixa);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
