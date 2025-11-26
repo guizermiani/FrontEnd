@@ -7,29 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p>Informe o primeiro número</p>
-    <input id="num1">
-    <p>Informe o segundo número</p>
-    <input id="num2">   
-    <br><br>
-
-    <p id = "resultadoSoma"></p>
-    <p id = "resultadoSub"></p>
-    <p id = "resultadoMult"></p>
-    <p id = "resultadoDiv"></p>
-    <p id = "resultadoResto"></p>
-    <p id = "resultadoExp"></p>
-    
-
-    <button type="button" id = "somar" onclick="calcular('somar')">Somar</button>
-    <button type="button" id = "sub" onclick="calcular('subtrair')">Subtrair</button>
-    <button type="button" id = "mult" onclick="calcular('multiplicar')">Multiplicar</button>
-    <button type="button" id = "div" onclick="calcular('dividir')">Dividir</button>
-    <button type="button" id = "resto" onclick="calcular('resto')">Resto</button>
-    <button type="button" id = "exp" onclick="calcular('exp')">Exp</button>
-
-
-<br><br><br><br>
     <div class="calc">
         
         <div class = "display">
@@ -41,31 +18,27 @@
             <button class="op" onclick="addChar('%')">%</button>
             <button onclick="addChar(')')">xy</button>
             <button class="del" onclick="deleteChar('del')">D</button>
-            <br>
     
             <button onclick="addChar('7')">7</button>
             <button onclick="addChar('8')">8</button>
             <button onclick="addChar('9')">9</button>
             <button class="op" onclick="addChar('*')">*</button>
-            <br>
-    
+            
             <button onclick="addChar('4')">4</button>
             <button onclick="addChar('5')">5</button>
             <button onclick="addChar('6')">6</button>
             <button class="op" onclick="addChar('-')">-</button>
-            <br>
-    
+            
             <button onclick="addChar('1')">1</button>
             <button onclick="addChar('2')">2</button>
             <button onclick="addChar('3')">3</button>
             <button class="op" onclick="addChar('+')">+</button>
-            <br>
-    
+            
             <button onclick="addChar('.')">+/-</button>
             <button onclick="addChar('0')">0</button>
             <button onclick="addChar('.')">.</button>
             <button class="equal" onclick="calculate('=')">=</button>
-            <br>
+            
         </div>
 </div>
 

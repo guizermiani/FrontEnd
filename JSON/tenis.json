@@ -1,0 +1,72 @@
+[
+    {
+        "categoria": "Tênis Esportivo",
+        "nome": "Nike Downshifter",
+        "marca": "Nike",
+        "tamanho": 42,
+        "preco": 299.99
+    },
+    {
+        "categoria": "Tênis Casual",
+        "nome": "Adidas Superstar",
+        "marca": "Adidas",
+        "tamanho": 40,
+        "preco": 649.99
+    },
+    {
+        "categoria": "Tênis de Corrida",
+        "nome": "Asics Gel",
+        "marca": "Asics",
+        "tamanho": 41,
+        "preco": 399.99
+    },
+    {
+        "categoria": "Tênis de Basquete",
+        "nome": "Air Jordan",
+        "marca": "Jordan",
+        "tamanho": 43,
+        "preco": 899.99
+    },
+    {
+        "categoria": "Tênis de Skate",
+        "nome": "Vans Old Skool",
+        "marca": "Vans",
+        "tamanho": 39,
+        "preco": 249.99
+    },
+    {
+        "categoria": "Chuteira de Futebol",
+        "nome": "Nike Phantom GX",
+        "marca": "Nike",
+        "tamanho": 41,
+        "preco": 499.99
+    },
+    {
+        "categoria": "Tênis de Futsal",
+        "nome": "Umbro Pro 5 Bump",
+        "marca": "Umbro",
+        "tamanho": 40,
+        "preco": 399.99
+    },
+    {
+        "categoria": "Tênis Esportivo",
+        "nome": "Adidas Ultraboost",
+        "marca": "Adidas",
+        "tamanho": 42,
+        "preco": 799.99
+    },
+    {
+        "categoria": "Tênis Casual",
+        "nome": "Puma Smash",
+        "marca": "Puma",
+        "tamanho": 41,
+        "preco": 299.99
+    },
+    {
+        "categoria": "Tênis de Corrida",
+        "nome": "New Balance 990v5",
+        "marca": "New Balance",
+        "tamanho": 43,
+        "preco": 699.99
+    }
+]
