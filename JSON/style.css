@@ -1,0 +1,38 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #fafafa;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0,0,0,0.5);
+        z-index: 9999;
+        padding: 20px;
+      }
+      
+.modal.show { display: flex; }
+
+.modal-content {
+        background: #fff;
+        border-radius: 8px;
+        max-width: 720px;
+        width: 100%;
+        padding: 20px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        max-height: 90vh;
+        overflow: auto;
+      }
+
+.modal-content h2 { margin-top: 0; }
+.modal-content label { display:block; margin-top:10px; font-weight:600; }
+.modal-content input, .modal-content textarea { width:100%; padding:8px; border:1px solid #ccc; border-radius:4px; margin-top:6px; }
+.modal-btns { display:flex; gap:8px; margin-top:12px; }
+.modal-btns button { padding:8px 12px; border-radius:4px; }
