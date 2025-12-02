@@ -5,14 +5,17 @@ const searchBtn = document.getElementById('searchBtn');
 const clearBtn = document.getElementById('clearBtn');
 
 let tenisData = [];
+let editIndex = null;
 
 function renderList(items) {
     container.innerHTML = '';
+
     if (!items || items.length === 0) {
         container.innerHTML = '<p style="color:#555">Nenhum item para exibir.</p>';
         return;
     }
-    items.forEach(item => {
+
+    items.forEach((item, index) => {
         const div = document.createElement('div');
         div.style.border = '1px solid #eee';
         div.style.padding = '12px';
@@ -22,12 +25,24 @@ function renderList(items) {
             <h2 style="margin:0 0 6px 0;font-size:18px">Categoria: ${item.categoria}</h2>
             <h3 style="margin:0 0 6px 0;font-size:16px">Nome: ${item.nome}</h3>
             <p style="margin:0">Marca: ${item.marca} — Tamanho: ${item.tamanho} — Preço: R$ ${item.preco}</p>
+            <br>
+            <button class="editTenisBtn" data-index="${index}">Editar Tênis</button>
         `;
         container.appendChild(div);
     });
+
+    attachEditEvents();
 }
 
-// Usa fetch para buscar o arquivo JSON e armazenar os dados
+function attachEditEvents() {
+    document.querySelectorAll(".editTenisBtn").forEach(btn => {
+        btn.addEventListener("click", function () {
+            const index = this.getAttribute("data-index");
+            openEditModal(index);
+        });
+    });
+}
+
 fetch('tenis.json')
     .then(response => {
         if (!response.ok) throw new Error(`Erro HTTP: ${response.status}`);
@@ -42,7 +57,8 @@ fetch('tenis.json')
         container.innerHTML = '<p style="color:crimson">Falha ao carregar dados.</p>';
     });
 
-// Busca um item unicamente (match exato por nome ou marca). Se não houver match exato, tenta includes e lida com múltiplos.
+
+// busca item
 function searchUnique() {
     const q = searchInput.value.trim();
     if (q === '') {
@@ -52,9 +68,7 @@ function searchUnique() {
 
     const ql = q.toLowerCase();
 
-    // tentativa de match exato por nome
     let found = tenisData.find(item => item.nome.toLowerCase() === ql);
-    // se não achou, match exato por marca
     if (!found) found = tenisData.find(item => item.marca.toLowerCase() === ql);
 
     if (found) {
@@ -62,8 +76,11 @@ function searchUnique() {
         return;
     }
 
-    // se não encontrou exato, tenta includes (busca parcial)
-    const matches = tenisData.filter(item => item.nome.toLowerCase().includes(ql) || item.marca.toLowerCase().includes(ql));
+    const matches = tenisData.filter(item =>
+        item.nome.toLowerCase().includes(ql) ||
+        item.marca.toLowerCase().includes(ql)
+    );
+
     if (matches.length === 1) {
         renderList(matches);
     } else if (matches.length > 1) {
@@ -74,7 +91,7 @@ function searchUnique() {
     }
 }
 
-// eventos
+// eventos de busca
 searchInput.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') searchUnique();
 });
@@ -87,15 +104,17 @@ clearBtn.addEventListener('click', function () {
     searchInput.focus();
 });
 
-// ====== Modal (Adicionar Tênis) ======
+// modal
 const addBtn = document.getElementById('addBtn');
 const modal = document.getElementById('modal');
 const btnClose = document.getElementById('btnClose');
 const movieForm = document.getElementById('movieForm');
 
 function openModal() {
+    editIndex = null;
     modal.classList.add('show');
     movieForm.reset();
+    document.getElementById('modalTitle').innerText = "Adicionar Tênis";
     document.getElementById('categoria').focus();
 }
 
@@ -104,19 +123,34 @@ function closeModal() {
     movieForm.reset();
 }
 
-addBtn.addEventListener('click', openModal);
+function openEditModal(index) {
+    editIndex = index;
+    const tenis = tenisData[index];
 
+    document.getElementById("modalTitle").innerText = "Editar Tênis";
+
+    document.getElementById('categoria').value = tenis.categoria;
+    document.getElementById('nome').value = tenis.nome;
+    document.getElementById('marca').value = tenis.marca;
+    document.getElementById('tamanho').value = tenis.tamanho;
+    document.getElementById('preco').value = tenis.preco;
+
+    modal.classList.add("show");
+}
+
+// botoes do modal
+addBtn.addEventListener('click', openModal);
 btnClose.addEventListener('click', closeModal);
 
-// Fechar ao clicar fora do conteúdo
 modal.addEventListener('click', function (e) {
     if (e.target === modal) closeModal();
 });
 
-// Submeter o formulário: adiciona o tênis à lista
+// salvar form
 movieForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    const novoTenis = {
+
+    const newData = {
         categoria: document.getElementById('categoria').value.trim(),
         nome: document.getElementById('nome').value.trim(),
         marca: document.getElementById('marca').value.trim(),
@@ -124,51 +158,18 @@ movieForm.addEventListener('submit', function (e) {
         preco: parseFloat(document.getElementById('preco').value) || 0
     };
 
-    if (novoTenis.categoria && novoTenis.nome && novoTenis.marca) {
-        tenisData.push(novoTenis);
-        renderList(tenisData);
-        closeModal();
-        console.log('Tênis adicionado:', novoTenis);
-    } else {
+    if (!newData.categoria || !newData.nome || !newData.marca) {
         alert('Preencha todos os campos obrigatórios!');
+        return;
     }
-});
 
-// adicionar tenis ao JSON
-function saveTenisData() {
-    fetch('tenis.json', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(tenisData)
-    })
-    .then(response => {
-        if (!response.ok) throw new Error(`Erro ao salvar dados: ${response.status}`);
-        return response.json();
-    })
-    .then(data => {
-        console.log('Dados salvos com sucesso:', data);
-    })
-    .catch(error => {
-        console.error('Erro ao salvar dados:', error);
-    });
-}
-
-// Chamar saveTenisData() sempre que um novo tênis for adicionado
-movieForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const novoTenis = {
-        categoria: document.getElementById('categoria').value.trim(),
-        nome: document.getElementById('nome').value.trim(),
-        marca: document.getElementById('marca').value.trim(),
-        tamanho: parseInt(document.getElementById('tamanho').value) || 0,
-        preco: parseFloat(document.getElementById('preco').value) || 0
-    };
-    if (novoTenis.categoria && novoTenis.nome && novoTenis.marca) {
-        tenisData.push(novoTenis);
-        renderList(tenisData);
-        closeModal();
-        saveTenisData(); // Salva os dados após adicionar um novo tênis
+    if (editIndex !== null) {
+        tenisData[editIndex] = newData;
+        editIndex = null;
+    } else {
+        tenisData.push(newData);
     }
+
+    renderList(tenisData);
+    closeModal();
 });
