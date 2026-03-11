@@ -1,0 +1,16 @@
+body{
+font-family: Arial;
+text-align: center;
+}
+
+#listaFilmes{
+margin-top: 20px;
+}
+
+.filme{
+border:1px solid #ccc;
+padding: 10px;
+margin: 10px;
+width: 200px;
+display: inline-block;
+}
