@@ -1,0 +1,15 @@
+<h1> 
+  {{title}}
+</h1>
+
+<p>Cliques: {{ contador }}</p>
+<button (click)="incrementar()">Clique aqui para somar</button>
+ 
+<div style="border: 1px solid #ccc; padding: 20px;">
+  <label>Digite seu nome: </label>
+  <input type="text" [(ngModel)]="textoDigitado" placeholder="Escreva algo.">
+
+  <h3>Resultado em tempo real:</h3>
+  <p>Você está digitando: <strong>{{ textoDigitado }}</strong></p>
+  <button (click)="textoDigitado = ''">Limpar Campo</button>
+</div>  
