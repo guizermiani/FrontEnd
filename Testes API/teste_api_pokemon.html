@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Busca Pokémon — PokeAPI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 10px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+    }
+    #pokemon-info {
+      margin-top: 20px;
+    }
+    img {
+      max-width: 200px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Busca Pokémon via PokeAPI</h1>
+  <p>Digite o nome ou o ID de um Pokémon:</p>
+
+  <input type="text" id="pokemonInput" placeholder="Ex: pikachu ou 25">
+  <button onclick="getPokemonData()">Buscar</button>
+
+  <div id="pokemon-info"></div>
+
+  <script>
+    async function getPokemonData() {
+      const input = document.getElementById('pokemonInput').value.trim().toLowerCase();
+      if (!input) {
+        document.getElementById('pokemon-info').innerHTML = '<p>Por favor, digite um nome ou ID.</p>';
+        return;
+      }
+      const url = `https://pokeapi.co/api/v2/pokemon/${encodeURIComponent(input)}/`;
+
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error('Pokémon não encontrado ou erro na requisição');
+        }
+        const data = await response.json();
+        displayPokemonInfo(data);
+      } catch (error) {
+        console.error('Erro:', error);
+        document.getElementById('pokemon-info').innerHTML = `<p>Erro: ${error.message}</p>`;
+      }
+    }
+
+    function displayPokemonInfo(data) {
+      const types = data.types.map(t => t.type.name).join(', ');
+      const abilities = data.abilities.map(a => a.ability.name).join(', ');
+
+      const html = `
+        <h2>${data.name.charAt(0).toUpperCase() + data.name.slice(1)} (ID: ${data.id})</h2>
+        <img src="${data.sprites.front_default}" alt="Sprite de ${data.name}">
+        <p><strong>Altura:</strong> ${data.height}</p>
+        <p><strong>Peso:</strong> ${data.weight}</p>
+        <p><strong>Tipos:</strong> ${types}</p>
+        <p><strong>Habilidades:</strong> ${abilities}</p>
+      `;
+      document.getElementById('pokemon-info').innerHTML = html;
+    }
+  </script>
+
+</body>
+</html>

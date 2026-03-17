@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumo da API OMDb</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 10px;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+        }
+        #movie-info {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Consumo da API OMDb</h1>
+    <p>Digite o nome de um filme para buscar:</p>
+
+    <input type="text" id="movieTitle" placeholder="Ex: Inception">
+    <button onclick="getMovieData()">Buscar</button>
+
+    <div id="movie-info"></div>
+
+    <script>
+        // Função para obter dados do filme
+        async function getMovieData() {
+            const movieTitle = document.getElementById('movieTitle').value;
+            const apiKey = '764a0e7c';  // Substitua com a sua chave de API do OMDb
+            const url = `https://www.omdbapi.com/?t=${encodeURIComponent(movieTitle)}&apikey=${apiKey}`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (data.Response === "True") {
+                    displayMovieInfo(data);
+                } else {
+                    document.getElementById('movie-info').innerHTML = `<p>Filme não encontrado!</p>`;
+                }
+            } catch (error) {
+                console.error('Erro ao buscar dados:', error);
+                document.getElementById('movie-info').innerHTML = `<p>Erro ao buscar os dados. Tente novamente mais tarde.</p>`;
+            }
+        }
+
+        // Função para exibir as informações do filme
+        function displayMovieInfo(data) {
+            const movieInfo = `
+                <h2>${data.Title} (${data.Year})</h2>
+                <img src="${data.Poster}" alt="Poster do filme" width="200">
+                <p><strong>Diretor:</strong> ${data.Director}</p>
+                <p><strong>Elenco:</strong> ${data.Actors}</p>
+                <p><strong>Gênero:</strong> ${data.Genre}</p>
+                <p><strong>Resumo:</strong> ${data.Plot}</p>
+                <p><strong>Avaliação:</strong> ${data.imdbRating}</p>
+            `;
+            document.getElementById('movie-info').innerHTML = movieInfo;
+        }
+    </script>
+
+</body>
+</html>
