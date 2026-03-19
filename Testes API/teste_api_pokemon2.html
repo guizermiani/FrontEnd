@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokédex Avançada — PokeAPI</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #222;
+      margin-bottom: 10px;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    input {
+      width: 220px;
+    }
+
+    button {
+      background: #ffcb05;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+      margin-left: 5px;
+    }
+
+    button:hover {
+      background: #ffdd57;
+    }
+
+    .pokemon-card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      padding: 20px;
+      margin-top: 20px;
+      max-width: 800px;
+      width: 100%;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .info {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .header img {
+      width: 200px;
+      height: 200px;
+      image-rendering: pixelated;
+    }
+
+    .section {
+      margin-top: 20px;
+    }
+
+    .types span, .abilities span {
+      background: #eee;
+      padding: 5px 10px;
+      border-radius: 10px;
+      margin-right: 5px;
+      display: inline-block;
+    }
+
+    .stats table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .stats td {
+      padding: 5px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .moves {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .moves span {
+      background: #def;
+      padding: 5px 10px;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    .sprites {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .sprites img {
+      width: 100px;
+      height: 100px;
+      background: #f6f6f6;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    .description {
+      font-style: italic;
+      background: #f9f9f9;
+      border-left: 4px solid #66a6ff;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .loading {
+      color: #333;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Pokédex Avançada</h1>
+  <div>
+    <input type="text" id="pokemonInput" placeholder="Ex: charizard ou 6">
+    <button onclick="buscarPokemon()">Buscar</button>
+  </div>
+
+  <div id="pokemon-card-container"></div>
+
+  <script>
+    async function buscarPokemon() {
+      const input = document.getElementById("pokemonInput").value.trim().toLowerCase();
+      const container = document.getElementById("pokemon-card-container");
+      container.innerHTML = "";
+
+      if (!input) {
+        container.innerHTML = "<p>Digite o nome ou ID de um Pokémon.</p>";
+        return;
+      }
+
+      container.innerHTML = "<p class='loading'>🔍 Buscando informações...</p>";
+
+      try {
+        // Busca dados principais
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${encodeURIComponent(input)}`);
+        if (!response.ok) throw new Error("Pokémon não encontrado!");
+        const data = await response.json();
+
+        // Busca dados da espécie (para descrição)
+        const speciesRes = await fetch(data.species.url);
+        const speciesData = await speciesRes.json();
+        const flavorTextEntry = speciesData.flavor_text_entries.find(e => e.language.name === "en" || e.language.name === "es" || e.language.name === "pt");
+
+        exibirPokemon(data, flavorTextEntry ? flavorTextEntry.flavor_text : "Descrição não encontrada.");
+
+      } catch (error) {
+        container.innerHTML = `<p style="color:red;">${error.message}</p>`;
+      }
+    }
+
+    function exibirPokemon(data, descricao) {
+      const container = document.getElementById("pokemon-card-container");
+
+      const tipos = data.types.map(t => `<span>${t.type.name}</span>`).join("");
+      const habilidades = data.abilities.map(a => `<span>${a.ability.name}</span>`).join("");
+      const movimentos = data.moves.slice(0, 20).map(m => `<span>${m.move.name}</span>`).join("");
+      const stats = data.stats.map(s => `
+        <tr>
+          <td><strong>${s.stat.name}</strong></td>
+          <td>${s.base_stat}</td>
+        </tr>
+      `).join("");
+
+      container.innerHTML = `
+        <div class="pokemon-card">
+          <div class="header">
+            <div class="info">
+              <h2>${data.name.toUpperCase()} (ID: ${data.id})</h2>
+              <p><strong>Altura:</strong> ${data.height}</p>
+              <p><strong>Peso:</strong> ${data.weight}</p>
+              <p><strong>Base Experience:</strong> ${data.base_experience}</p>
+              <div class="types"><strong>Tipos:</strong> ${tipos}</div>
+              <div class="abilities"><strong>Habilidades:</strong> ${habilidades}</div>
+            </div>
+            <img src="${data.sprites.other['official-artwork'].front_default}" alt="${data.name}">
+          </div>
+
+          <div class="section description">
+            <h3>Descrição</h3>
+            <p>${descricao}</p>
+          </div>
+
+          <div class="section sprites">
+            <h3>Sprites</h3>
+            <img src="${data.sprites.front_default}" alt="Frente normal">
+            <img src="${data.sprites.back_default}" alt="Costas normal">
+            <img src="${data.sprites.front_shiny}" alt="Frente shiny">
+            <img src="${data.sprites.back_shiny}" alt="Costas shiny">
+          </div>
+
+          <div class="section stats">
+            <h3>Estatísticas</h3>
+            <table>${stats}</table>
+          </div>
+
+          <div class="section moves">
+            <h3>Golpes (Moves)</h3>
+            ${movimentos}
+          </div>
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
