@@ -1,22 +1,135 @@
 {
   "categorias": [
-    {"id": "1", "nome": "Tecnologia"}, {"id": "2", "nome": "Saúde"},
-    {"id": "3", "nome": "Educação"}, {"id": "4", "nome": "Lazer"},
-    {"id": "5", "nome": "Negócios"}, {"id": "6", "nome": "Arte"},
-    {"id": "7", "nome": "Esportes"}, {"id": "8", "nome": "Gastronomia"},
-    {"id": "9", "nome": "Moda"}, {"id": "10", "nome": "Música"}
+    {
+      "id": "1",
+      "nome": "Tecnologia"
+    },
+    {
+      "id": "2",
+      "nome": "Saúde"
+    },
+    {
+      "id": "3",
+      "nome": "Educação"
+    },
+    {
+      "id": "4",
+      "nome": "Lazer"
+    },
+    {
+      "id": "5",
+      "nome": "Negócios"
+    },
+    {
+      "id": "6",
+      "nome": "Arte"
+    },
+    {
+      "id": "7",
+      "nome": "Esportes"
+    },
+    {
+      "id": "8",
+      "nome": "Gastronomia"
+    },
+    {
+      "id": "9",
+      "nome": "Moda"
+    },
+    {
+      "id": "10",
+      "nome": "Música"
+    }
   ],
   "eventos": [
-    { "id": "1", "titulo": "Angular Summit", "data": "2026-04-10", "local": "Auditório Senai", "categoriaId": "1", "descricao": "Imersão em Signals." },
-    { "id": "2", "titulo": "Feira de Profissões", "data": "2026-04-15", "local": "Ginásio Municipal", "categoriaId": "3", "descricao": "Conheça cursos técnicos." },
-    { "id": "3", "titulo": "Hackathon SC", "data": "2026-05-01", "local": "Hub de Inovação", "categoriaId": "1", "descricao": "48h de código." },
-    { "id": "4", "titulo": "Workshop de Sushi", "data": "2026-05-05", "local": "Escola de Gastronomia", "categoriaId": "8", "descricao": "Culinária japonesa." },
-    { "id": "5", "titulo": "Corrida do Trabalhador", "data": "2026-05-01", "local": "Beira Mar", "categoriaId": "7", "descricao": "5km e 10km." },
-    { "id": "6", "titulo": "Exposição de Arte Moderna", "data": "2026-06-12", "local": "Museu Local", "categoriaId": "6", "descricao": "Obras locais." },
-    { "id": "7", "titulo": "Palestra Finanças", "data": "2026-06-15", "local": "Centro Comercial", "categoriaId": "5", "descricao": "Como investir." },
-    { "id": "8", "titulo": "Show de Jazz", "data": "2026-07-20", "local": "Teatro Ademir Rosa", "categoriaId": "10", "descricao": "Noite de clássicos." },
-    { "id": "9", "titulo": "Semana da Saúde", "data": "2026-08-05", "local": "Posto Central", "categoriaId": "2", "descricao": "Checkups gratuitos." },
-    { "id": "10", "titulo": "Desfile de Inverno", "data": "2026-08-10", "local": "Shopping", "categoriaId": "9", "descricao": "Tendências 2026." }
+    {
+      "id": "1",
+      "titulo": "Angular Summit",
+      "data": "2026-04-10",
+      "local": "Auditório Senai",
+      "categoriaId": "1",
+      "descricao": "Imersão em Signals."
+    },
+    {
+      "id": "2",
+      "titulo": "Feira de Profissões",
+      "data": "2026-04-15",
+      "local": "Ginásio Municipal",
+      "categoriaId": "3",
+      "descricao": "Conheça cursos técnicos."
+    },
+    {
+      "id": "3",
+      "titulo": "Hackathon SC",
+      "data": "2026-05-01",
+      "local": "Hub de Inovação",
+      "categoriaId": "1",
+      "descricao": "48h de código."
+    },
+    {
+      "id": "4",
+      "titulo": "Workshop de Sushi",
+      "data": "2026-05-05",
+      "local": "Escola de Gastronomia",
+      "categoriaId": "8",
+      "descricao": "Culinária japonesa."
+    },
+    {
+      "id": "5",
+      "titulo": "Corrida do Trabalhador",
+      "data": "2026-05-01",
+      "local": "Beira Mar",
+      "categoriaId": "7",
+      "descricao": "5km e 10km."
+    },
+    {
+      "id": "6",
+      "titulo": "Exposição de Arte Moderna",
+      "data": "2026-06-12",
+      "local": "Museu Local",
+      "categoriaId": "6",
+      "descricao": "Obras locais."
+    },
+    {
+      "id": "7",
+      "titulo": "Palestra Finanças",
+      "data": "2026-06-15",
+      "local": "Centro Comercial",
+      "categoriaId": "5",
+      "descricao": "Como investir."
+    },
+    {
+      "id": "8",
+      "titulo": "Show de Jazz",
+      "data": "2026-07-20",
+      "local": "Teatro Ademir Rosa",
+      "categoriaId": "10",
+      "descricao": "Noite de clássicos."
+    },
+    {
+      "id": "9",
+      "titulo": "Semana da Saúde",
+      "data": "2026-08-05",
+      "local": "Posto Central",
+      "categoriaId": "2",
+      "descricao": "Checkups gratuitos."
+    },
+    {
+      "id": "10",
+      "titulo": "Desfile de Inverno",
+      "data": "2026-08-10",
+      "local": "Shopping",
+      "categoriaId": "9",
+      "descricao": "Tendências 2026."
+    },
+    {
+      "titulo": "SENAI",
+      "data": "2026-03-03",
+      "local": "Rio do Sul",
+      "categoriaId": "3",
+      "descricao": "Palestra.",
+      "id": "YQe0TY8"
+    }
   ],
   "usuarios": [
     {
