@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="agenda-lista.component.css">
 <div class="container mt-5">
   <div class="d-flex justify-content-between align-items-center mb-4">
-    <h1 class="text-primary fw-bold">📅 Agenda de Eventos 2026</h1>
+    <h1 class="text-primary fw-bold">Agenda de Eventos Esportivos 2026</h1>
     <a routerLink="/novo-evento" class="btn btn-success">+ Sugerir Evento</a>
   </div>
 
@@ -21,7 +21,9 @@
             <p class="small text-secondary">{{ item.descricao }}</p>
           </div>
           <div class="card-footer bg-white border-0 pb-3">
-            <button class="btn btn-outline-primary w-100">Ver Detalhes</button>
+            <a class="nav-link" routerLink="/evento/{{ item.id }}" routerLinkActive="active-link">
+              Ver detalhes
+            </a>
           </div>
         </div>
       </div>
