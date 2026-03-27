@@ -1,0 +1,118 @@
+/* App Container - Layout Flexbox */
+
+:host {
+  display: flex;
+  height: 100vh;
+  background-color: var(--dark-bg);
+}
+
+.app-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar {
+  width: 70px;
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  overflow-y: auto;
+  transition: width 0.3s ease;
+}
+
+.sidebar.expanded {
+  width: 250px;
+  padding: 20px;
+}
+
+.sidebar-toggle {
+  width: 50px;
+  height: 50px;
+  background-color: var(--accent-gray);
+  border: none;
+  border-radius: 8px;
+  color: var(--light-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+}
+
+.sidebar-toggle:hover {
+  background-color: var(--highlight);
+  transform: scale(1.05);
+}
+
+.sidebar-item {
+  width: 50px;
+  height: 50px;
+  background-color: var(--accent-gray);
+  border: none;
+  border-radius: 8px;
+  color: var(--muted-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.sidebar.expanded .sidebar-item {
+  width: 100%;
+  justify-content: flex-start;
+  padding-left: 15px;
+}
+
+.sidebar-item:hover {
+  background-color: var(--highlight);
+  color: var(--light-text);
+}
+
+.sidebar-item.active {
+  background-color: var(--highlight);
+  color: var(--light-text);
+  border-left: 3px solid var(--light-text);
+}
+
+.sidebar.expanded .sidebar-item.active {
+  border-left: 0;
+  border-left: 3px solid var(--light-text);
+}
+
+.sidebar-label {
+  display: none;
+  margin-left: 15px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.sidebar.expanded .sidebar-label {
+  display: inline;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.navbar-wrapper {
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.page-content {
+  flex: 1;
+  overflow-y: auto;
+  background-color: var(--dark-bg);
+}

@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="navbar.component.css">
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
-  <div class="container">
-    <a class="navbar-brand" routerLink="/">
-      <i class="bi bi-calendar-event me-2"></i>Eventos Esportivos
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+      <i class="bi bi-calendar2-event"></i> Eventos 2026
     </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -10,15 +10,15 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item">
           <a class="nav-link" routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
-            Início
+            <i class="bi bi-house-door"></i> Início
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/novo-evento" routerLinkActive="active-link">
-            Novo Evento
+            <i class="bi bi-plus-circle"></i> Novo Evento
           </a>
         </li>
       </ul>
