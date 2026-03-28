@@ -2,135 +2,107 @@
   "categorias": [
     {
       "id": "1",
-      "nome": "Tecnologia"
+      "nome": "Campeonato"
     },
     {
       "id": "2",
-      "nome": "Saúde"
+      "nome": "Torneio"
     },
     {
       "id": "3",
-      "nome": "Educação"
+      "nome": "Gincana"
     },
     {
       "id": "4",
-      "nome": "Lazer"
+      "nome": "Festival"
     },
     {
       "id": "5",
-      "nome": "Negócios"
-    },
-    {
-      "id": "6",
-      "nome": "Arte"
-    },
-    {
-      "id": "7",
-      "nome": "Esportes"
-    },
-    {
-      "id": "8",
-      "nome": "Gastronomia"
-    },
-    {
-      "id": "9",
-      "nome": "Moda"
-    },
-    {
-      "id": "10",
-      "nome": "Música"
+      "nome": "Desafio"
     }
   ],
   "eventos": [
-    {
-      "id": "1",
-      "titulo": "Angular Summit",
-      "data": "2026-04-10",
-      "local": "Auditório Senai",
-      "categoriaId": "1",
-      "descricao": "Imersão em Signals."
-    },
-    {
-      "id": "2",
-      "titulo": "Feira de Profissões",
-      "data": "2026-04-15",
-      "local": "Ginásio Municipal",
-      "categoriaId": "3",
-      "descricao": "Conheça cursos técnicos."
-    },
-    {
-      "id": "3",
-      "titulo": "Hackathon SC",
-      "data": "2026-05-01",
-      "local": "Hub de Inovação",
-      "categoriaId": "1",
-      "descricao": "48h de código."
-    },
-    {
-      "id": "4",
-      "titulo": "Workshop de Sushi",
-      "data": "2026-05-05",
-      "local": "Escola de Gastronomia",
-      "categoriaId": "8",
-      "descricao": "Culinária japonesa."
-    },
-    {
-      "id": "5",
-      "titulo": "Corrida do Trabalhador",
-      "data": "2026-05-01",
-      "local": "Beira Mar",
-      "categoriaId": "7",
-      "descricao": "5km e 10km."
-    },
-    {
-      "id": "6",
-      "titulo": "Exposição de Arte Moderna",
-      "data": "2026-06-12",
-      "local": "Museu Local",
-      "categoriaId": "6",
-      "descricao": "Obras locais."
-    },
-    {
-      "id": "7",
-      "titulo": "Palestra Finanças",
-      "data": "2026-06-15",
-      "local": "Centro Comercial",
-      "categoriaId": "5",
-      "descricao": "Como investir."
-    },
-    {
-      "id": "8",
-      "titulo": "Show de Jazz",
-      "data": "2026-07-20",
-      "local": "Teatro Ademir Rosa",
-      "categoriaId": "10",
-      "descricao": "Noite de clássicos."
-    },
-    {
-      "id": "9",
-      "titulo": "Semana da Saúde",
-      "data": "2026-08-05",
-      "local": "Posto Central",
-      "categoriaId": "2",
-      "descricao": "Checkups gratuitos."
-    },
-    {
-      "id": "10",
-      "titulo": "Desfile de Inverno",
-      "data": "2026-08-10",
-      "local": "Shopping",
-      "categoriaId": "9",
-      "descricao": "Tendências 2026."
-    },
-    {
-      "titulo": "SENAI",
-      "data": "2026-03-03",
-      "local": "Rio do Sul",
-      "categoriaId": "3",
-      "descricao": "Palestra.",
-      "id": "YQe0TY8"
-    }
-  ],
+  {
+    "id": "1",
+    "titulo": "Campeonato Estadual de Futsal Sub-20",
+    "data": "2026-04-10",
+    "local": "Ginásio Municipal de Rio do Sul",
+    "categoriaId": "1",
+    "descricao": "Disputa entre as melhores equipes do estado na categoria Sub-20."
+  },
+  {
+    "id": "2",
+    "titulo": "Torneio de Basquete 3x3",
+    "data": "2026-04-18",
+    "local": "Quadra da Praça Central",
+    "categoriaId": "2",
+    "descricao": "Torneio aberto com premiação em dinheiro nas categorias masculino e feminino."
+  },
+  {
+    "id": "3",
+    "titulo": "Gincana Esportiva das Escolas",
+    "data": "2026-05-03",
+    "local": "Centro Esportivo Municipal",
+    "categoriaId": "3",
+    "descricao": "Competição entre escolas com provas de atletismo, revezamento e jogos coletivos."
+  },
+  {
+    "id": "4",
+    "titulo": "Festival de Esportes Radicais",
+    "data": "2026-05-15",
+    "local": "Parque da Usina",
+    "categoriaId": "4",
+    "descricao": "Demonstrações e competições de skate, BMX, parkour e escalada."
+  },
+  {
+    "id": "5",
+    "titulo": "Desafio de Ciclismo Serra Acima",
+    "data": "2026-05-22",
+    "local": "Saída da Ponte dos Arcos",
+    "categoriaId": "5",
+    "descricao": "Percurso de 50km com altimetria elevada. Aberto para ciclistas amadores e profissionais."
+  },
+  {
+    "id": "6",
+    "titulo": "Campeonato Catarinense de Vôlei de Quadra",
+    "data": "2026-06-05",
+    "local": "Centro Esportivo de Rio do Sul",
+    "categoriaId": "1",
+    "descricao": "Etapa regional do Campeonato Catarinense Adulto Masculino e Feminino."
+  },
+  {
+    "id": "7",
+    "titulo": "Torneio Interno de Futebol Society",
+    "data": "2026-06-12",
+    "local": "Complexo Esportivo do Bairro Santana",
+    "categoriaId": "2",
+    "descricao": "Torneio entre times amadores da cidade com premiação para os 3 primeiros colocados."
+  },
+  {
+    "id": "8",
+    "titulo": "Gincana Aquática",
+    "data": "2026-06-20",
+    "local": "Piscina Olímpica do Sesc",
+    "categoriaId": "3",
+    "descricao": "Provas divertidas de natação, polo aquático e revezamento para todas as idades."
+  },
+  {
+    "id": "9",
+    "titulo": "Festival de Artes Marciais",
+    "data": "2026-07-10",
+    "local": "Academia Nova Era",
+    "categoriaId": "4",
+    "descricao": "Apresentações e competições de Jiu-Jitsu, Karatê, Taekwondo e Muay Thai."
+  },
+  {
+    "id": "10",
+    "titulo": "Desafio Trail Run Rio do Sul",
+    "data": "2026-07-25",
+    "local": "Trilha do Morro do Cristo",
+    "categoriaId": "5",
+    "descricao": "Prova de corrida trail com distâncias de 8km e 15km em terreno de mata."
+  }
+],
   "usuarios": [
     {
       "id": "1",
