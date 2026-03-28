@@ -67,3 +67,60 @@ body {
   color: var(--light-text);
   box-shadow: 0 0 0 0.2rem rgba(106, 119, 141, 0.25);
 }
+
+/* ============================================================= */
+/*          CARDS - FUNDO CINZA + TEXTO BRANCO                   */
+/* ============================================================= */
+
+.card,
+.card-body,
+.card-evento,
+.event-card,
+.agenda-card {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--light-text) !important;
+}
+
+/* Força TODOS os textos dentro do card ficarem brancos */
+.card * {
+  color: var(--light-text) !important;
+}
+
+/* Títulos principais (mais visíveis) */
+.card-title,
+h5,
+h6,
+.fw-bold,
+strong {
+  color: #ffffff !important;     /* Branco puro */
+  font-weight: 600;
+}
+
+/* Textos secundários (data, local, descrição) */
+.card-text,
+p,
+small,
+span,
+.text-muted,
+.text-secondary,
+.text-dark {
+  color: var(--muted-text) !important;   /* Cinza claro legível */
+}
+
+/* Botões e badges */
+.btn {
+  color: #fff !important;
+}
+
+.badge {
+  color: #fff !important;
+}
+
+/* Hover no card (melhora a experiência) */
+.card:hover {
+  background-color: #20252e !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
