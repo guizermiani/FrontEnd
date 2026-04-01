@@ -27,8 +27,9 @@
     "titulo": "Campeonato Estadual de Futsal Sub-20",
     "data": "2026-04-10",
     "local": "Ginásio Municipal de Rio do Sul",
-    "categoriaId": "1",
-    "descricao": "Disputa entre as melhores equipes do estado na categoria Sub-20."
+    "categoriaId": "1", 
+    "descricao": "Disputa entre as melhores equipes do estado na categoria Sub-20.",
+    "valorIngresso": "20.00"
   },
   {
     "id": "2",
@@ -36,7 +37,8 @@
     "data": "2026-04-18",
     "local": "Quadra da Praça Central",
     "categoriaId": "2",
-    "descricao": "Torneio aberto com premiação em dinheiro nas categorias masculino e feminino."
+    "descricao": "Torneio aberto com premiação em dinheiro nas categorias masculino e feminino.",
+    "valorIngresso": 10.00
   },
   {
     "id": "3",
@@ -44,7 +46,8 @@
     "data": "2026-05-03",
     "local": "Centro Esportivo Municipal",
     "categoriaId": "3",
-    "descricao": "Competição entre escolas com provas de atletismo, revezamento e jogos coletivos."
+    "descricao": "Competição entre escolas com provas de atletismo, revezamento e jogos coletivos.",
+    "valorIngresso": 5.00
   },
   {
     "id": "4",
@@ -52,7 +55,8 @@
     "data": "2026-05-15",
     "local": "Parque da Usina",
     "categoriaId": "4",
-    "descricao": "Demonstrações e competições de skate, BMX, parkour e escalada."
+    "descricao": "Demonstrações e competições de skate, BMX, parkour e escalada.",
+    "valorIngresso": 15.00
   },
   {
     "id": "5",
@@ -60,7 +64,8 @@
     "data": "2026-05-22",
     "local": "Saída da Ponte dos Arcos",
     "categoriaId": "5",
-    "descricao": "Percurso de 50km com altimetria elevada. Aberto para ciclistas amadores e profissionais."
+    "descricao": "Percurso de 50km com altimetria elevada. Aberto para ciclistas amadores e profissionais.",
+    "valorIngresso": 25.00
   },
   {
     "id": "6",
@@ -68,7 +73,8 @@
     "data": "2026-06-05",
     "local": "Centro Esportivo de Rio do Sul",
     "categoriaId": "1",
-    "descricao": "Etapa regional do Campeonato Catarinense Adulto Masculino e Feminino."
+    "descricao": "Etapa regional do Campeonato Catarinense Adulto Masculino e Feminino.",
+    "valorIngresso": 20.00
   },
   {
     "id": "7",
@@ -76,7 +82,8 @@
     "data": "2026-06-12",
     "local": "Complexo Esportivo do Bairro Santana",
     "categoriaId": "2",
-    "descricao": "Torneio entre times amadores da cidade com premiação para os 3 primeiros colocados."
+    "descricao": "Torneio entre times amadores da cidade com premiação para os 3 primeiros colocados.",
+    "valorIngresso": 10.00
   },
   {
     "id": "8",
@@ -84,7 +91,8 @@
     "data": "2026-06-20",
     "local": "Piscina Olímpica do Sesc",
     "categoriaId": "3",
-    "descricao": "Provas divertidas de natação, polo aquático e revezamento para todas as idades."
+    "descricao": "Provas divertidas de natação, polo aquático e revezamento para todas as idades.",
+    "valorIngresso": 5.00
   },
   {
     "id": "9",
@@ -92,7 +100,8 @@
     "data": "2026-07-10",
     "local": "Academia Nova Era",
     "categoriaId": "4",
-    "descricao": "Apresentações e competições de Jiu-Jitsu, Karatê, Taekwondo e Muay Thai."
+    "descricao": "Apresentações e competições de Jiu-Jitsu, Karatê, Taekwondo e Muay Thai.",
+    "valorIngresso": "15.00"
   },
   {
     "id": "10",
@@ -100,7 +109,8 @@
     "data": "2026-07-25",
     "local": "Trilha do Morro do Cristo",
     "categoriaId": "5",
-    "descricao": "Prova de corrida trail com distâncias de 8km e 15km em terreno de mata."
+    "descricao": "Prova de corrida trail com distâncias de 8km e 15km em terreno de mata.",
+    "valorIngresso": "25.00"
   }
 ],
   "usuarios": [

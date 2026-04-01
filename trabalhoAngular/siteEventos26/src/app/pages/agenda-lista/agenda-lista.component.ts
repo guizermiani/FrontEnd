@@ -13,6 +13,7 @@ import { RouterLink } from '@angular/router';
 export class AgendaListaComponent implements OnInit {
   private agendaService = inject(AgendaService);
   eventos = signal<Evento[]>([]);
+  eventoSelecionado = signal<Evento | null>(null);
 
   ngOnInit() {
     this.carregarEventos();
@@ -21,6 +22,16 @@ export class AgendaListaComponent implements OnInit {
   carregarEventos() {
     this.agendaService.getEventos().subscribe(res => this.eventos.set(res));
   }
+
+  detalhesEvento(evento: Evento) {
+  this.eventoSelecionado.set(evento);
+
+  const modal = new (window as any).bootstrap.Modal(
+    document.getElementById('modalEvento')
+  );
+  modal.show();
 }
+}
+
 
 
