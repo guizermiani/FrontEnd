@@ -10,6 +10,8 @@ export interface Evento {
   local: string;
   categoriaId: string;
   descricao: string;
+  valorIngresso?: number | string;
+  image?: string;
 }
 
 export interface usuario {

@@ -65,11 +65,26 @@
 .card-custom {
   background-color: var(--card-bg);
   border: 1px solid var(--accent-gray);
-  border-radius: 12px;
+  border-radius: 20px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   transition: all 0.3s ease;
+  padding-bottom: 10px;
+}
+
+.card-custom img.card-img-top {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.card-footer-custom {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  position: relative;
+  bottom: 8px;
+  background-color: var(--card-bg);
+  padding-bottom: 8px;
 }
 
 .hover-shadow {

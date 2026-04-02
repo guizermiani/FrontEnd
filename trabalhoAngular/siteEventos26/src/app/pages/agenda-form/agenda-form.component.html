@@ -1,4 +1,5 @@
-<div class="container border p-4 shadow-sm bg-light rounded">
+<div class="container border p-4 shadow-sm bg-dark rounded">
+
   <h2 class="mb-4 text-primary">Novo Evento na Agenda</h2>
 
   <form [formGroup]="agendaForm" (ngSubmit)="salvar()">
@@ -40,6 +41,11 @@
       <textarea formControlName="descricao" class="form-control" rows="3"></textarea>
     </div>
 
+      <label class="form-label">Valor do Ingresso</label>
+      <input type="number" formControlName="valorIngresso" class="form-control"
+             [class.is-invalid]="agendaForm.get('valorIngresso')?.touched && agendaForm.get('valorIngresso')?.invalid">
+
+    <br>
     <div class="d-flex gap-2">
       <button type="submit" class="btn btn-primary" [disabled]="agendaForm.invalid">
         Agendar Evento
