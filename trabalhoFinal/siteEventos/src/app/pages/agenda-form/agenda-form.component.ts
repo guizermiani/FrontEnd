@@ -15,6 +15,7 @@ import { Categoria } from '../../models/agenda.model';
     .invalid-feedback { display: block; }
   `]
 })
+
 export class AgendaFormComponent implements OnInit {
   private fb = inject(FormBuilder);
   private agendaService = inject(AgendaService);
