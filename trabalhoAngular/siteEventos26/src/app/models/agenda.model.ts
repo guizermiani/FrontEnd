@@ -12,6 +12,19 @@ export interface Evento {
   descricao: string;
   valorIngresso?: number | string;
   image?: string;
+  latitude?: number;
+  longitude?: number;
+}
+
+export interface Ingresso {
+  id?: string;
+  eventoId: string;
+  usuarioId: string;
+  quantidade: number;
+  valorTotal: number;
+  dataCompra: string;
+  codigoIngresso: string;
+  evento?: Evento; // Para incluir dados do evento
 }
 
 export interface usuario {

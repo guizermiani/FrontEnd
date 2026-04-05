@@ -1,6 +1,7 @@
 import { Component, OnInit, inject, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { AgendaService } from '../../services/agenda.service';
 import { Evento, Categoria } from '../../models/agenda.model';
 
@@ -13,6 +14,7 @@ import { Evento, Categoria } from '../../models/agenda.model';
 export class AgendaListaComponent implements OnInit {
   private agendaService = inject(AgendaService);
   private router = inject(Router);
+  private sanitizer = inject(DomSanitizer);
 
   eventos = signal<Evento[]>([]);
   eventoSelecionado = signal<Evento | null>(null);
@@ -126,6 +128,27 @@ export class AgendaListaComponent implements OnInit {
 
   getCategoriaNome(categoriaId?: string): string {
     return this.categorias.find(cat => cat.id === categoriaId)?.nome ?? 'Geral';
+  }
+
+  excluirEvento(evento: Evento): void {
+    if (confirm(`Tem certeza que deseja excluir o evento "${evento.titulo}"?`)) {
+      this.agendaService.excluirEvento(evento.id!).subscribe({
+        next: () => {
+          this.carregarEventos();
+          alert('Evento excluído com sucesso!');
+        },
+        error: (err) => {
+          console.error('Erro ao excluir:', err);
+          alert('Erro ao excluir evento. Tente novamente.');
+        }
+      });
+    }
+  }
+
+  getMapUrl(lat?: number, lon?: number): SafeResourceUrl {
+    if (!lat || !lon) return this.sanitizer.bypassSecurityTrustResourceUrl('');
+    const url = `https://www.openstreetmap.org/export/embed.html?bbox=${lon-0.01},${lat-0.01},${lon+0.01},${lat+0.01}&layer=mapnik&marker=${lat},${lon}`;
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 }
 
