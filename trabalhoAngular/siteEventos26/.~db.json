@@ -156,6 +156,15 @@
       "dataCompra": "2026-04-05",
       "codigoIngresso": "ING-1775428151443-1COG8",
       "id": 1
+    },
+    {
+      "eventoId": 3,
+      "usuarioId": "usuario-1",
+      "quantidade": 1,
+      "valorTotal": 0,
+      "dataCompra": "2026-04-05",
+      "codigoIngresso": "ING-1775428151443-JXX8M",
+      "id": 2
     }
   ]
 }

@@ -1,34 +1,114 @@
-<div class="container mt-5">
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <h1 class="text-primary fw-bold">Agenda de Eventos Esportivos 2026</h1>
-    <a routerLink="/novo-evento" class="btn btn-outline-success">+ Sugerir Evento</a>
+<div class="container mt-4">
+  <div class="header-section">
+    <h1>Agenda de Eventos Esportivos 2026</h1>
+
+    <div class="d-flex gap-2 justify-content-end">
+      <a routerLink="/novo-evento" class="btn btn-outline-success btn-suggest">
+        <i class="bi bi-plus-circle"></i> Sugerir Evento
+      </a>
+
+      <button class="btn btn-outline-warning btn-suggest" (click)="irCarrinho()">
+        <i class="bi bi-cart"></i> Carrinho ({{ carrinho().length }})
+      </button>
+    </div>
+  </div>
+
+  <div class="search-section mt-4 mb-5">
+    <div class="row">
+      <div class="col-md-5 mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Buscar eventos..."
+          [value]="searchTerm()"
+          (input)="searchTerm.set($any($event.target).value)"
+        />
+      </div>
+
+      <div class="col-md-5 mb-3">
+        <select
+          class="form-select"
+          [value]="selectedCategoria()"
+          (change)="selectedCategoria.set($any($event.target).value)"
+        >
+          <option value="">Todas as categorias</option>
+          @for (cat of categorias; track cat.id) {
+            <option [value]="cat.id">{{ cat.nome }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="col-md-2 mb-3">
+        <button class="btn btn-secondary w-100" (click)="limparFiltro()">Limpar</button>
+      </div>
+    </div>
   </div>
 
   <div class="row">
-    @for (item of eventos(); track item.id) {
+    @for (item of eventosFiltrados(); track item.id) {
       <div class="col-md-4 mb-4">
-        <div class="card h-100 border-0 shadow-sm hover-shadow">
-          <div class="card-body">
-            <span class="badge bg-info text-dark mb-2" id="evento-confirmado"
-              >Evento Confirmado</span
-            >
-            <h5 class="card-title fw-bold">{{ item.titulo }}</h5>
-            <p class="card-text text-muted mb-1">
-              <i class="bi bi-calendar" style="color: rgb(255, 255, 255)"></i>
-              {{ item.data | date: 'dd/MM/yyyy' }}
+        <div class="card card-custom h-100 border-0 shadow-sm hover-shadow">
+          <img src="{{ getImagem(item) }}" class="card-img-top" alt="{{ item.titulo }}" loading="lazy" />
+          <div class="card-body card-body-custom">
+            <span class="badge badge-custom">{{ getCategoriaNome(item.categoriaId) }}</span>
+            <h5 class="card-title card-title-custom">{{ item.titulo }}</h5>
+            <p class="card-text card-text-custom">
+              <i class="bi bi-calendar"></i> {{ item.data | date: 'dd/MM/yyyy' }}
             </p>
-            <p class="card-text text-muted"><i class="bi bi-geo-alt"></i> {{ item.local }}</p>
-            <p class="small text-secondary">{{ item.descricao }}</p>
-            <div class="detalhes mb-2 text-center text">
-              <button type="button" class="btn btn-outline-secondary">Ver detalhes</button>
-            </div>
+            <p class="card-text card-text-custom">
+              <i class="bi bi-geo-alt"></i> {{ item.local }}
+            </p>
+            <p class="card-description">{{ item.descricao }}</p>
+            <p class="card-price">Valor do Ingresso: {{ item.valorIngresso | currency:'BRL':'symbol':'1.2-2' }}</p>
+          </div>
+          <div class="card-footer-custom">
+            <button class="btn btn-outline-primary me-2" (click)="detalhesEvento(item)">Ver detalhes</button>
+            <button class="btn btn-outline-success me-2" (click)="adicionarCarrinho(item)">Adicionar ao carrinho</button>
+            <button class="btn btn-outline-danger" (click)="excluirEvento(item)">Excluir</button>
           </div>
         </div>
       </div>
     } @empty {
-      <div class="text-center p-5">
-        <p class="lead">Nenhum evento agendado para o momento.</p>
+      <div class="empty-state text-center">
+        <p class="lead">Nenhum evento disponível com o filtro atual.</p>
       </div>
     }
+  </div>
+</div>
+
+<div class="modal fade" id="modalEvento" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="background-color: #4a5568; color: #ffffff;">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">{{ eventoSelecionado()?.titulo }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <p><strong>Data:</strong> {{ eventoSelecionado()?.data | date:'dd/MM/yyyy' }}</p>
+        <p><strong>Local:</strong> {{ eventoSelecionado()?.local }}</p>
+        
+        @if (eventoSelecionado()?.latitude && eventoSelecionado()?.longitude) {
+          <div class="mb-3">
+            <strong>Mapa:</strong>
+            <iframe 
+              [src]="getMapUrl(eventoSelecionado()?.latitude, eventoSelecionado()?.longitude)" 
+              style="width: 100%; height: 300px; border: 1px solid #ddd; border-radius: 8px;"
+              allowfullscreen="" 
+              loading="lazy">
+            </iframe>
+          </div>
+        }
+        
+        <p><strong>Descrição:</strong><br />{{ eventoSelecionado()?.descricao }}</p>
+        <p><strong>Valor do Ingresso:</strong> {{ eventoSelecionado()?.valorIngresso | currency:'BRL':'symbol':'1.2-2' }}</p>
+        <p><strong>Categoria:</strong> {{ getCategoriaNome(eventoSelecionado()?.categoriaId) }}</p>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button class="btn btn-danger" type="button" (click)="excluirEvento(eventoSelecionado()!)">Excluir evento</button>
+        <button class="btn btn-success" (click)="comprarIngresso()">Comprar ingresso</button>
+      </div>    </div>
   </div>
 </div>
