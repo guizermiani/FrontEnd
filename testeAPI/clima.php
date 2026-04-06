@@ -80,10 +80,12 @@
           } else {
             resultado.innerHTML = `
               <h2>${data.name}, ${data.sys.country}</h2>
+              <p><strong>Coordenadas:</strong> ${data.coord.lat}, ${data.coord.lon}</p>
               <p><strong>Temperatura:</strong> ${data.main.temp} °C</p>
               <p><strong>Condição:</strong> ${data.weather[0].description}</p>
               <p><strong>Umidade:</strong> ${data.main.humidity}%</p>
               <p><strong>Vento:</strong> ${data.wind.speed} m/s</p>
+              <p><strong>Pressão:</strong> ${data.main.pressure} atm</p>
             `;
           }
         })
