@@ -2,7 +2,6 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,13 +13,7 @@ import { Router } from '@angular/router';
 export class App {
   sidebarExpanded = signal(false);
 
-  constructor(private router: Router) {}
-
   toggleSidebar() {
     this.sidebarExpanded.update(value => !value);
-  }
-
-  sair() {
-    this.router.navigate(['/sair']);
   }
 }

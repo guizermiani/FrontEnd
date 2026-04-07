@@ -19,21 +19,12 @@
 }
 
 .header-section {
-  padding: 0 0 20px 0;
+  padding: 0 0 30px 0;
   border-bottom: 1px solid var(--accent-gray);
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.search-section {
-  background-color: var(--card-bg);
-  border: 1px solid var(--accent-gray);
-  border-radius: 12px;
-  padding: 24px;
-  margin-bottom: 40px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .header-section h1 {
@@ -69,44 +60,16 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 24px;
-  margin-bottom: 40px; /* Espaço extra antes dos cards */
 }
 
 .card-custom {
   background-color: var(--card-bg);
   border: 1px solid var(--accent-gray);
-  border-radius: 20px;
+  border-radius: 12px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   transition: all 0.3s ease;
-  padding-bottom: 10px;
-  margin-bottom: 24px; /* Aumentei o espaço entre cards */
-}
-
-.card-custom img.card-img-top {
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-}
-
-.card-footer-custom {
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  position: relative;
-  bottom: 8px;
-  background-color: var(--card-bg);
-  padding: 24px 28px 32px; /* Aumentei ainda mais o padding */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px; /* Aumentei o gap entre botões */
-  flex-wrap: wrap;
-}
-
-.card-footer-custom .btn {
-  flex: 1;
-  min-width: 120px;
-  font-size: 0.85rem;
 }
 
 .hover-shadow {
@@ -265,10 +228,6 @@
   .card-body-custom,
   .card-footer-custom {
     padding: 20px;
-  }
-
-  .card-footer-custom {
-    padding: 24px 20px 28px; /* Espaçamento específico para mobile */
   }
 
   .empty-state {

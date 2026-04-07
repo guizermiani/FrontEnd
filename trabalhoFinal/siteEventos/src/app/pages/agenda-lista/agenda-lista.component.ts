@@ -22,5 +22,3 @@ export class AgendaListaComponent implements OnInit {
     this.agendaService.getEventos().subscribe(res => this.eventos.set(res));
   }
 }
-
-
